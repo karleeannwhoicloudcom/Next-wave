@@ -28,6 +28,65 @@
         <li>Group Lesson (2–3 students): $35/student</li>
       </ul>
     </section>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Income-Based Discount Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    .slider-container {
+      margin: 2rem 0;
+    }
+    input[type="range"] {
+      width: 80%;
+    }
+    .result {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Income-Based Discount Calculator</h1>
+  <p>Slide to input your annual income (Max: $55,000)</p>
+
+  <div class="slider-container">
+    <input type="range" min="0" max="55000" value="27500" id="incomeSlider">
+    <div>Income: $<span id="incomeValue">27500</span></div>
+  </div>
+
+  <div class="result">
+    Eligible Discount: <strong><span id="discountValue">32%</span></strong>
+  </div>
+
+  <script>
+    const slider = document.getElementById('incomeSlider');
+    const incomeVal = document.getElementById('incomeValue');
+    const discountVal = document.getElementById('discountValue');
+
+    function calculateDiscount(income) {
+      if (income >= 55000) return '0%';
+      const minDiscount = 15;
+      const maxDiscount = 50;
+      const percent = 1 - income / 55000;
+      const discount = minDiscount + percent * (maxDiscount - minDiscount);
+      return Math.round(discount) + '%';
+    }
+
+    slider.addEventListener('input', function () {
+      const income = parseInt(this.value);
+      incomeVal.textContent = income;
+      discountVal.textContent = calculateDiscount(income);
+    });
+  </script>
   </main>
   <footer>
     <p>&copy; 2025 Next Wave Swim</p>
