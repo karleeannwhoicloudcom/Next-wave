@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swim Assistance Application | Next Wave Miami</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f5fbff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .slider-section, form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slider-container {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .result {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 2rem;
+      background-color: #0077cc;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .image-feature {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .image-feature img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Next Wave Miami</h1>
+    <p>Affordable Swim Lessons for Families in Need</p>
+  </header>
+
+  <div class="container">
+
+    <div class="image-feature">
+      <img src="family-swim.jpg" alt="Family learning to swim together">
+    </div>
+
+    <section class="slider-section">
+      <h2>Check Your Estimated Discount</h2>
+      <label for="incomeSlider">Annual Household Income (up to $55,000)</label>
+      <input type="range" min="0" max="55000" value="27500" id="incomeSlider">
+      <div>Income: $<span id="incomeValue">27500</span></div>
+      <div class="result">Estimated Discount: <span id="discountValue">32%</span></div>
+    </section>
+
+    <form action="https://formspree.io/f/YOUR_ID" method="POST">
+      <h2>Apply for Swim Lesson Assistance</h2>
+
+      <!-- Family Info -->
+      <label>Parent/Guardian Full Name</label>
+      <input type="text" name="parent_name" required>
+
+      <label>Relationship to Child</label>
+      <input type="text" name="relationship" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Home Address</label>
+      <input type="text" name="address" required>
+
+      <label>City</label>
+      <input type="text" name="city" required>
+
+      <label>State</label>
+      <input type="text" name="state" required>
+
+      <label>Zip Code</label>
+      <input type="text" name="zip" required>
+
+      <!-- Household Info -->
+      <label>Total Annual Household Income</label>
+      <input type="number" name="household_income" required>
+
+      <label>Number of People in Household</label>
+      <input type="number" name="household_size" required>
+
+      <label>Source of Income</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="income_source" value="Employment"> Employment</label>
+        <label><input type="checkbox" name="income_source" value="Social Security"> Social Security</label>
+        <label><input type="checkbox" name="income_source" value="Disability"> Disability</label>
+        <label><input type="checkbox" name="income_source" value="Unemployment"> Unemployment</label>
+        <label><input type="checkbox" name="income_source" value="Other"> Other</label>
+      </div>
+
+      <!-- Child Info -->
+      <label>Child's Full Name</label>
+      <input type="text" name="child_name" required>
+
+      <label>Age</label>
+      <input type="number" name="child_age" required>
+
+      <label>Date of Birth</label>
+      <input type="date" name="dob" required>
+
+      <label>Swimming Experience Level</label>
+      <select name="experience" required>
+        <option value="Beginner">Beginner</option>
+        <option value="Some">Some Experience</option>
+        <option value="Intermediate">Intermediate</option>
+      </select>
+
+      <!-- Preferences -->
+      <label>Preferred Start Date</label>
+      <input type="date" name="start_date">
+
+      <label>Available Days</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="days" value="Monday"> Monday</label>
+        <label><input type="checkbox" name="days" value="Tuesday"> Tuesday</label>
+        <label><input type="checkbox" name="days" value="Wednesday"> Wednesday</label>
+        <label><input type="checkbox" name="days" value="Thursday"> Thursday</label>
+        <label><input type="checkbox" name="days" value="Friday"> Friday</label>
+        <label><input type="checkbox" name="days" value="Saturday"> Saturday</label>
+        <label><input type="checkbox" name="days" value="Sunday"> Sunday</label>
+      </div>
+
+      <label>Preferred Time</label>
+      <select name="time_pref">
+        <option value="Morning">Morning (8am-12pm)</option>
+        <option value="Afternoon">Afternoon (12pm-5pm)</option>
+        <option value="Evening">Evening (5pm-8pm)</option>
+      </select>
+
+      <label>Schedule Flexibility</label>
+      <select name="flexibility">
+        <option value="Very flexible">Very Flexible</option>
+        <option value="Somewhat flexible">Somewhat Flexible</option>
+        <option value="Limited flexibility">Limited Flexibility</option>
+      </select>
+
+      <label>Do you have access to a pool?</label>
+      <select name="pool_access">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>If yes, what type?</label>
+      <input type="text" name="pool_type">
+
+      <label>Pool Address (if different from home)</label>
+      <input type="text" name="pool_address">
+
+      <!-- Additional -->
+      <label>Why is swimming instruction important for your child?</label>
+      <textarea name="importance_reason" rows="3"></textarea>
+
+      <label>Any special needs or considerations?</label>
+      <textarea name="special_needs" rows="2"></textarea>
+
+      <label>How did you hear about us?</label>
+      <select name="referral_source">
+        <option value="Social media">Social Media</option>
+        <option value="Community event">Community Event</option>
+        <option value="Referral">Referral</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label><input type="checkbox" name="agreement" required> I certify the information provided is true.</label>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+  </div>
+
+  <script>
+    const slider = document.getElementById('incomeSlider');
+    const incomeVal = document.getElementById('incomeValue');
+    const discountVal = document.getElementById('discountValue');
+
+    function calculateDiscount(income) {
+      if (income >= 55000) return '0%';
+      const minDiscount = 15;
+      const maxDiscount = 50;
+      const percent = 1 - income / 55000;
+      const discount = minDiscount + percent * (maxDiscount - minDiscount);
+      return Math.round(discount) + '%';
+    }
+
+    slider.addEventListener('input', function () {
+      const income = parseInt(this.value);
+      incomeVal.textContent = income;
+      discountVal.textContent = calculateDiscount(income);
+    });
+  </script>
+
+</body>
+</html>
